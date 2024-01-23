@@ -1,0 +1,16 @@
+server:
+  port: 8089
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mongo_test
+      username: jjs
+      password: 9382
+      authentication-database: admin
+      uri: mongodb://localhost:27017/mongo_test?authSource=admin
+
+
+

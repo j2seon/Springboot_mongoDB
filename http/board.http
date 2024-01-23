@@ -1,0 +1,11 @@
+### 가입
+POST http://localhost:8089/boards
+Content-Type: application/json
+Accept: */*
+Access-Control-Allow-Origin: *
+
+{
+  title,
+  String content,
+  String author
+}

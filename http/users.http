@@ -1,0 +1,16 @@
+### 가입
+POST http://localhost:8089/users
+Content-Type: application/json
+Accept: */*
+Access-Control-Allow-Origin: *
+
+{
+  "loginId": "test",
+  "userName": "test",
+  "password": "test"
+}
+
+### 찾기
+GET http://localhost:8089/users/test
+Accept: */*
+Access-Control-Allow-Origin: *
