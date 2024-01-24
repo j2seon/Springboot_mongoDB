@@ -2,13 +2,12 @@ package com.j2seon.mongotest.board.controller;
 
 import com.j2seon.mongotest.base.common.ApiResult;
 import com.j2seon.mongotest.board.dto.request.BoardReqDto;
+import com.j2seon.mongotest.board.dto.request.UpdateBoardReqDto;
 import com.j2seon.mongotest.board.dto.response.BoardResDto;
 import com.j2seon.mongotest.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +25,11 @@ public class BoardController {
   @GetMapping("/boards")
   public ApiResult<List<BoardResDto>> findByUsers (String userName) {
     return ApiResult.success(boardService.findByUsers(userName));
+  }
+
+
+  @PutMapping("/boards/{id}")
+  public ApiResult<BoardResDto> update (@PathVariable String id, @RequestBody UpdateBoardReqDto reqDto) {
+    return ApiResult.success(boardService.update(id, reqDto));
   }
 }

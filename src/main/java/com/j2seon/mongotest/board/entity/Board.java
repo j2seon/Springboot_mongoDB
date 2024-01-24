@@ -1,18 +1,20 @@
 package com.j2seon.mongotest.board.entity;
 
+import com.j2seon.mongotest.board.dto.request.UpdateBoardReqDto;
 import com.j2seon.mongotest.user.entity.Users;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 @Getter
+@Entity
 @Document(collection = "board")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Board {
+
   @Id
   private String id;
   private String title;
@@ -26,5 +28,10 @@ public class Board {
     this.title = title;
     this.content = content;
     this.users = users;
+  }
+
+
+  public Board updateEntity(UpdateBoardReqDto dto) {
+      return new Board(this.getId(),dto.title(),dto.content(),this.getUsers());
   }
 }

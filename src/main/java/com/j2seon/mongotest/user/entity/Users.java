@@ -3,6 +3,7 @@ package com.j2seon.mongotest.user.entity;
 import com.j2seon.mongotest.board.entity.Board;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -24,8 +25,9 @@ public class Users {
   private String password;
   private String userName;
 
+  // @ReadOnlyProperty
   @DocumentReference(lazy = true)
-  private List<Board> boards = new ArrayList<>();
+  private List<Board> boards ;
 
   @Builder
   public Users(String loginId, String password, String userName) {
@@ -37,7 +39,6 @@ public class Users {
   public void addBoard(Board board){
     this.boards.add(board);
   }
-
 
   @Override
   public boolean equals(Object o) {

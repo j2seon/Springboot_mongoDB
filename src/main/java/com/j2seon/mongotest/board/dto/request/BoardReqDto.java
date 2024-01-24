@@ -1,5 +1,6 @@
 package com.j2seon.mongotest.board.dto.request;
 
+import com.j2seon.mongotest.board.entity.Board;
 import lombok.Builder;
 
 public record BoardReqDto(
@@ -7,9 +8,5 @@ public record BoardReqDto(
   String content,
   String author
 ) {
-
-  @Builder
-  public BoardReqDto {
-  }
 
 }

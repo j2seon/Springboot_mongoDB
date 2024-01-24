@@ -9,6 +9,7 @@ public class BaseException extends RuntimeException {
   private final String errorMessage;
 
   public BaseException(ErrorCodeInterFace errorCode) {
+    System.out.println(errorCode.getErrorCode());
     this.errorCode = errorCode;
     this.errorMessage = errorCode.getErrorMessage();
   }

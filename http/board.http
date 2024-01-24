@@ -1,11 +1,22 @@
-### 가입
+### 작성
 POST http://localhost:8089/boards
 Content-Type: application/json
 Accept: */*
 Access-Control-Allow-Origin: *
 
 {
-  title,
-  String content,
-  String author
+  "title": "ㅇㅇ",
+  "content": "ㅇㅇ",
+  "author" : "test1"
+}
+
+### 수정
+PUT http://localhost:8089/boards/65b06c5c0c30e627bcba146e
+Content-Type: application/json
+Accept: */*
+Access-Control-Allow-Origin: *
+
+{
+  "title": "updateTest",
+  "content": "updateTest"
 }

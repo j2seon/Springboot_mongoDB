@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @EnableAutoConfiguration
 @SpringBootTest
 class MongotestApplicationTests {
@@ -18,17 +20,15 @@ class MongotestApplicationTests {
 	@Autowired private BoardRepository boardRepository;
 	@Autowired private UsersRepository usersRepository;
 
-
 	@Test
 	void contextLoads() {
 
-		Board board1 = Board.builder().title("test1").content("test1111111111").build();
 		Users users = usersRepository.findByLoginId("test").orElseThrow(() -> new BaseException(BaseErrorCode.NULL_POINT));
+		List<Board> byUsers = boardRepository.findByUsers(users);
+		System.out.println("테스트:"+ byUsers.get(0).getContent());
 
-		boardRepository.save(board1);
-		users.addBoard(board1);
 
-		System.out.println(users.getBoards().get(0).getTitle());
+
 	}
 
 }
