@@ -7,7 +7,7 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 import java.util.List;
 
-public interface BoardRepository extends MongoRepository<Board, String> , QuerydslPredicateExecutor<Board> {
+public interface BoardRepository extends MongoRepository<Board, String> , QuerydslPredicateExecutor<Board>, BoardRepositoryCustom{
 
   List<Board> findByUsers(Users users);
 

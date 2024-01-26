@@ -27,7 +27,8 @@ class MongotestApplicationTests {
 		List<Board> byUsers = boardRepository.findByUsers(users);
 		System.out.println("테스트:"+ byUsers.get(0).getContent());
 
-
+		Board updateTest = boardRepository.test("updateTest");
+		System.out.println(updateTest.getId());
 
 	}
 

@@ -27,7 +27,6 @@ public class BoardController {
     return ApiResult.success(boardService.findByUsers(userName));
   }
 
-
   @PutMapping("/boards/{id}")
   public ApiResult<BoardResDto> update (@PathVariable String id, @RequestBody UpdateBoardReqDto reqDto) {
     return ApiResult.success(boardService.update(id, reqDto));
