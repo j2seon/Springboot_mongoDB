@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    container_name: my_mongo_container
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: admin
+      MONGO_NON_ROOT_USERNAME: jjs
+      MONGO_NON_ROOT_PASSWORD: 9382
+      MONGO_NON_ROOT_DATABASE: mongo_test
+    volumes:
+      - ./mongo_data:/data/db
+
+# docker-compose up --build
